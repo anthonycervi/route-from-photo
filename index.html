@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Route Builder (701 National Ave)</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Route Builder</h1>
+    <p class="sub">
+      Upload a photo with addresses. Start is always <b>701 National Ave, Vancouver, BC</b>.
+    </p>
+
+    <section class="card">
+      <label class="label">1) Upload image</label>
+      <input id="file" type="file" accept="image/*" />
+
+      <div class="row">
+        <button id="runBtn">Build route</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+
+      <details>
+        <summary>Tips for best results</summary>
+        <ul>
+          <li>Make sure addresses are readable (not blurry).</li>
+          <li>Include city/province when possible (Vancouver, BC).</li>
+          <li>3–15 stops works best.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card">
+      <label class="label">2) Extracted addresses</label>
+      <textarea id="addresses" placeholder="Addresses will appear here…" rows="10"></textarea>
+      <div class="row">
+        <button id="optBtn" class="secondary">Optimize from typed list</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <label class="label">3) Output</label>
+      <div id="status" class="status">Ready.</div>
+      <ol id="ordered"></ol>
+      <div id="links" class="links"></div>
+    </section>
+
+    <section class="card">
+      <label class="label">QR code for this page</label>
+      <p class="sub">Once your site is live, this QR updates automatically to your current URL.</p>
+      <canvas id="qr"></canvas>
+    </section>
+
+    <footer class="footer">
+      Built with Cloudflare Pages + openrouteservice (free).
+    </footer>
+  </main>
+
+  <!-- Free OCR in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <!-- QR code generator -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+
+  <script src="/app.js"></script>
+</body>
+</html>
